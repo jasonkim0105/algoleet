@@ -24,3 +24,35 @@
 // -109 <= nums[i] <= 109
 // -109 <= target <= 109
 // Only one valid answer exists.
+
+var twoSum = function(nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+      let first = nums[i];
+      for (let j = i + 1; j < nums.length; j++){
+          let second = nums[j];
+          if (first + second === target) {
+              return [i, j]
+          }
+      }
+  }
+};
+
+//O(n^2)
+
+var twoSum = function(nums, target) {
+  let obj = {};
+
+  for (let i = 0; i < nums.length; i++) {
+      let num = nums[i];
+      let diff = target - num
+
+
+      if (diff in obj) {
+          return [obj[diff], i]
+      } else {
+          obj[nums[i]] = i
+      }
+  }
+};
+
+//O(n)
