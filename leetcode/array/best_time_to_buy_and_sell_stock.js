@@ -38,3 +38,17 @@ var maxProfit = function(prices) {
 };
 
 //o(n^2)
+
+var maxProfit = function(prices) {
+  let max = 0;
+  min = prices[0];
+
+  for (let i = 1; i < prices.length; i++) {
+      min = Math.min(prices[i], min)
+
+      let profit = prices[i] - min;
+      max = Math.max(profit, max)
+  }
+  return max
+};
+//O(n)
