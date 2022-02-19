@@ -44,22 +44,20 @@ var lengthOfLongestSubstring = function(s) {
 //O(n^2)
 
 var lengthOfLongestSubstring = function (s) {
+  //instantiate set to store substring
   let set = new Set();
-  let longest = 0;
-  let j = 0; i = 0;
-
-  while(i < s.length && j < s.length) {
-    if(!set.has(s[j])) {
-      set.add(s[j]);
-      longest = Math.max(longest, j - i + 1);
-      j++;
-    } else {
+  let count = 0;
+  let i = 0;
+  //loop through string using sliding window technique
+  for (let j in s) {
+    while (set.has(s[j])) {
       set.delete(s[i]);
       i++;
     }
+    set.add(s[j]);
+    count = Math.max(count, j - i + 1);
   }
-
-  return longest;
-}
+  return count;
+};
 
 //O(n)
