@@ -12,7 +12,7 @@
 // Constraints:
 // ------------
 //
-// Make sure the time and space complexity of each is equivalent to those 
+// Make sure the time and space complexity of each is equivalent to those
 // in the table provided in the Time and Space Complexity Analysis section
 // of your Linked List reading!
 //
@@ -23,7 +23,8 @@
 // TODO: Implement a Linked List Node class here
 class Node {
     constructor(val) {
-
+        this.value = val;
+        this.next = null;
     }
 
 }
@@ -31,12 +32,21 @@ class Node {
 // TODO: Implement a Singly Linked List class here
 class LinkedList {
     constructor() {
-
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
     }
 
     // TODO: Implement the addToTail method here
     addToTail(val) {
+        const newNode = new Node(val);
 
+        if (!this.head) {
+            this.head = newNode;
+        } else {
+            this.tail.next = newNode;
+        }
+        return this;
     }
 
     // TODO: Implement the removeTail method here
