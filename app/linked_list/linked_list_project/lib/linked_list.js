@@ -76,7 +76,14 @@ class LinkedList {
 
     // TODO: Implement the addToHead method here
     addToHead(val) {
-
+        const newNode = new Node(val);
+        let current = this.head;
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        }
+        this.length++;
+        this.length--
     }
 
     // TODO: Implement the removeHead method here
