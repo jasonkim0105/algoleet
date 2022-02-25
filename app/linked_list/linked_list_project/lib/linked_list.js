@@ -83,7 +83,6 @@ class LinkedList {
             this.tail = newNode;
         }
         this.length++;
-        this.length--
     }
 
     // TODO: Implement the removeHead method here
