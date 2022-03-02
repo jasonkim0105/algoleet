@@ -140,19 +140,42 @@ class LinkedList {
         if (index < 0 || index >= this.length) {
             return false;
         }
+        if (index === 0) {
+            return this.addToHead(val)
+        }
+        if (index === this.length) {
+            return this.addToTail(val)
+        }
+
         let newNode = new Node(val);
-        const nodeIdx = this.get()
+        const prev = this.get(index - 1);
+        const temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
 
     }
 
     // TODO: Implement the remove method here
     remove(index) {
-
+        if (index < 0 || index > this.length) return undefined;
+        if (index === 0) {
+            return this.removeAtHead()
+        }
+        if (index === this.length) {
+            return this.removeAttail()
+        }
+        const prev = this.get(index - 1);
+        const removingNode = prev.next;
+        prev.next = removingNode.next;
+        this.length--;
+        return removingNode;
     }
 
     // TODO: Implement the size method here
     size() {
-
+        return this.length;
     }
 }
 
