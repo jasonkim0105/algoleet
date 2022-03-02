@@ -114,16 +114,34 @@ class LinkedList {
 
     // TODO: Implement the get method here
     get(index) {
-
+        if (index < 0 || index > this.length) return null;
+        let count = 0;
+        let current = this.head;
+        while (count < index) {
+            current = current.next
+            count++
+        }
+        return current
     }
 
     // TODO: Implement the set method here
     set(index, val) {
-
+        let count = 0;
+        let current = this.get(index);
+        if(current) {
+            current.value = val
+            return true
+        }
+        return false;
     }
 
     // TODO: Implement the insert method here
     insert(index, val) {
+        if (index < 0 || index >= this.length) {
+            return false;
+        }
+        let newNode = new Node(val);
+        const nodeIdx = this.get()
 
     }
 
