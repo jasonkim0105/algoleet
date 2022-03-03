@@ -6,42 +6,66 @@
 // Prompt:
 // -------
 //
-// Write a function linkedListIntersection that returns the node at which the 
-// intersection of two linked lists begins, or null if there is no such 
+// Write a function linkedListIntersection that returns the node at which the
+// intersection of two linked lists begins, or null if there is no such
 // intersection.
 //
-// ---------- 
+// ----------
 // Example 1:
 // ----------
-// 
-// Given the following two linked lists, list1 and list2, 
-// linkedListIntersection(list1,list2) should return D 
+//
+// Given the following two linked lists, list1 and list2,
+// linkedListIntersection(list1,list2) should return D
 // as the node of intersection.
-// 
+//
 //    A → B → C
 //             ↘
 //               D → E → F
 //             ↗
 //        X → Y
 //
-// ---------- 
+// ----------
 // Example 2:
 // ----------
 //
-// Given the following two linked lists, list1 and list2, 
-// linkedListIntersection(list1, list2) should return null 
+// Given the following two linked lists, list1 and list2,
+// linkedListIntersection(list1, list2) should return null
 // as there is no point of intersection.
-// 
+//
 //    A → B → C → D
 //
 //    X → Y → Z
-// 
+//
 // -----------
 // Let's code!
 // -----------
 function linkedListIntersection(list1, list2) {
   // TODO: Implement the hasCycle function!
+  let set = new Set();
 
+  let short;
+  let long;
+  if (list1.length >= list2.length) {
+    short = list2.head;
+    long = list1.head;
+  } else {
+    short = list1.head;
+    long = list2.head;
+  }
+  let diff = Math.abs(list2.length - list1.length);
+  console.log(diff)
+
+  while (short && long) {
+    if (diff > 0) {
+      long = long.next;
+      diff--;
+      continue;
+    }
+    if (long === short) return long;
+    long = long.next;
+    short = short.next;
+  }
+  return null;
 }
 
 // ----------------------------------------
