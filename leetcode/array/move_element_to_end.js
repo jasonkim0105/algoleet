@@ -28,7 +28,7 @@ while(i >= 0) {
 arr.splice(i, 1)
 	i–;
 } else {
-I–;
+i–;
 }
 }
 Return arr;
