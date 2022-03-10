@@ -12,10 +12,10 @@ function smallestDifference(arrayOne, arrayTwo) {
     let firstNum = arrayOneSorted[pointerOne];
     let secondNum = arrayTwoSorted[pointerTwo];
     if (firstNum < secondNum) {
-      current = firstNum - secondNum;
+      current = secondNum - firstNum;
       pointerOne++;
     } else if (secondNum < firstNum) {
-      current = secondNum - firstNum;
+      current = firstNum - secondNum;
       pointerTwo++;
     } else {
       return [firstNum, secondNum]
