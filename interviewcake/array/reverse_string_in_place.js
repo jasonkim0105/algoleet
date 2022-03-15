@@ -5,7 +5,7 @@ function reverseString(array) {
 
   let front = 0;
   let back = array.length - 1;
-  while(front < back) {
+  while (front < back) {
     let temp = array[back];
     array[back] = array[front];
     array[front] = temp;
@@ -13,7 +13,6 @@ function reverseString(array) {
     back--;
   }
   return array;
-
 }
 
 let array = ['j', 'a', 's', 'o', 'n']
