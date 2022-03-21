@@ -50,6 +50,7 @@ function productOfOther(array) {
   }
   return allProductExceptIdx
 }
+//o(n) time and space
 
 const arrayExample = [1, 2, 6, 5, 9];
 console.log(productOfOther(arrayExample))
