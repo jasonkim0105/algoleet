@@ -29,16 +29,20 @@
 
 // Note: Order numbers are arbitrary. They do not have to be in increasing order.
 
-function cakeOrderChecker(takeOutOrders, dineInOrders, servedOrders) {
-  if (servedOrders.length === 0) return true;
+// function cakeOrderChecker(takeOutOrders, dineInOrders, servedOrders) {
+//   if (servedOrders.length === 0) return true;
 
-  if (takeOutOrders.length && takeOutOrders[0] === servedOrders[0]) {
-    return cakeOrderChecker(takeOutOrders.slice(1), dineInOrders, servedOrders.slice(1))
-  } else if (dineInOrders.length && dineInOrders[0] === servedOrders[0]) {
-    return cakeOrderChecker(takeOutOrders, dineInOrders.slice(1), servedOrders.slice(1))
-  } else {
-    return false
-  }
+//   if (takeOutOrders.length && takeOutOrders[0] === servedOrders[0]) {
+//     return cakeOrderChecker(takeOutOrders.slice(1), dineInOrders, servedOrders.slice(1))
+//   } else if (dineInOrders.length && dineInOrders[0] === servedOrders[0]) {
+//     return cakeOrderChecker(takeOutOrders, dineInOrders.slice(1), servedOrders.slice(1))
+//   } else {
+//     return false
+//   }
+// }
+
+function cakeOrderChecker(takeOutOrders, dineInOrders, servedOrders) {
+
 }
 
 let takeOut = [17, 8, 24];

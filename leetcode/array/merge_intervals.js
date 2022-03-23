@@ -18,28 +18,51 @@
 // intervals[i].length == 2
 // 0 <= starti <= endi <= 104
 
-var merge = function(intervals) {
-  let sorted = intervals.sort((a, b) => a[0] - b[0]); // [[1,3],[2,6],[8,10],[15,18]]
-  let result = [sorted[0]]; // [[1,3]]
-  for (let i = 1; i < sorted.length; i++) {
+// var merge = function(intervals) {
+//   let sorted = intervals.sort((a, b) => a[0] - b[0]); // [[1,3],[2,6],[8,10],[15,18]]
+//   let result = [sorted[0]]; // [[1,3]]
+//   for (let i = 1; i < sorted.length; i++) {
 
-      let prev = result[result.length - 1]
+//       let prev = result[result.length - 1]
+//       let prevStart = prev[0];
+//       let prevEnd = prev[1];
+
+//       let curr = sorted[i];
+//       let currStart = curr[0];
+//       let currEnd = curr[1];
+
+//       // Overlap
+//       if (currStart <= prevEnd && currEnd > prevEnd) {
+//           result = result.slice(0, result.length - 1);
+//           result.push([Math.min(prevStart, currStart), currEnd]);
+//       }
+
+//       // No Overlap
+//       if (currStart > prevEnd) result.push([currStart, currEnd]);
+//   }
+
+//   return result;
+// };
+
+var merge = function(intervals) {
+  let sorted = intervals.sort((a,b) => a[0]-b[0]);
+  let result = [intervals[0]]
+  for (let i = 1; i < sorted.length; i++) {
+      let current = sorted[i];
+      let currentStart = current[0];
+      let currentEnd = current[1];
+
+      let prev = result[result.length - 1];
       let prevStart = prev[0];
       let prevEnd = prev[1];
 
-      let curr = sorted[i];
-      let currStart = curr[0];
-      let currEnd = curr[1];
-
-      // Overlap
-      if (currStart <= prevEnd && currEnd > prevEnd) {
-          result = result.slice(0, result.length - 1);
-          result.push([Math.min(prevStart, currStart), currEnd]);
+      if (currentStart <= prevEnd) {
+          prev[1] = Math.max(currentEnd, prevEnd)
+      } else {
+         result.push(current)
       }
 
-      // No Overlap
-      if (currStart > prevEnd) result.push([currStart, currEnd]);
   }
-
-  return result;
+  return result
 };
+//o(n)
