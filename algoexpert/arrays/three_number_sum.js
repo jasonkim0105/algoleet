@@ -4,6 +4,7 @@ function threeNumberSum(array, targetSum) {
 	//loop through array, ending at length - 2
 	//if array[i] + array[i+1] + array[i+2] === targetSum, push [array[i], array[i+1], array[i+3]] into res array
 
+
 	let res = [];
 	array.sort((a,b) => a-b );
 	for (let i = 0; i < array.length - 2; i++) {
@@ -26,3 +27,23 @@ function threeNumberSum(array, targetSum) {
 }
 
 //o(n^2)
+
+
+// function threeNumberSum(array, targetSum) {
+//   // Write your code here.
+// 	let res = [];
+// 	array.sort((a,b) => a-b);
+// 	for (let i = 0; i < array.length; i++) {
+
+// 		for (let j = i + 1; j < array.length; j++){
+// 			for (let k = j + 1; k < array.length; k++) {
+// 				if (array[i] + array[j] + array[k] === targetSum) {
+// 					res.push([array[i], array[j], array[k]])
+// 				}
+// 			}
+// 		}
+// 	}
+// 	return res
+// }
+
+//o(n^3)
