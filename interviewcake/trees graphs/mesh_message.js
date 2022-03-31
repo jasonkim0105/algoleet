@@ -32,17 +32,24 @@ bfs(graph, startNode, endNode) {
   const nodesToVisit = new Queue();
   nodesToVisit.enqueue(startNode);
 
-  const nodesAlreadySeen = new Set(startNode);
+  const nodesAlreadySeen = new Set([startNode]);
+
+  const howWeReachNodes = {};
+  howWeReachNodes[startNode] = null;
 
   while (nodesToVisit.size > 0) {
     const currentNode = nodesToVisit.dequeue();
-    if (currentNode === endNode) break;
+    if (currentNode === endNode) {
+      return path;
+    }
   }
 
   graph[currentNode].forEach(neighbor => {
     if (!nodesAlreadySeen.has(neighbor)) {
       nodesAlreadySeen.add(neighbor);
-      nodesToVisit.enqueue(neighbor)
+      nodesToVisit.enqueue(neighbor);
+
+      howWeReachNodes[neighbor] = currentNode
     }
   })
 }
