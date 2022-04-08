@@ -35,3 +35,5 @@ var spiralOrder = function(matrix) {
 
   return result
 };
+
+//o(n) time and space, where n is the total number of elemnets in the arrayß
