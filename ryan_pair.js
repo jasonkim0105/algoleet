@@ -56,6 +56,7 @@ const chessboard = (board, start, destination) => {
   let set = new Set(startRow + ',' + starCol);
   let queue = [[startRow, startCol]]
 
+
   while (queue.length) {
     const [row, col] = queue.shift()
     const [destRow, destCol] = destination
