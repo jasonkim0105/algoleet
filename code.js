@@ -62,55 +62,83 @@
 
 
 
-function build_file(files) {
-  let nodeMap = {};
+// function build_file(files) {
+//   let nodeMap = {};
 
-  files.forEach((file) => {
-    file.child = [];
-    nodeMap[file.id] = file
+//   files.forEach((file) => {
+//     file.child = [];
+//     nodeMap[file.id] = file
+//   })
+
+
+//   for (const id in nodeMap) {
+//     const node = nodeMap[id];
+//     if (node.parent !== null) {
+//       const parent = nodeMap[node.parent];
+//       parent.child.push(node);
+//       delete node.parent
+//     }
+//   }
+//   console.log(nodeMap)
+
+//   let result = Object.values(nodeMap).filter((node) => {
+//     if (node.parent === null) {
+//       delete node.parent;
+//       return node
+//     }
+//   })
+
+//   return result
+// }
+
+
+// console.log(build_file([
+//   {
+//      id : 1,
+//      name : 'Parent',
+//      parent : null
+//   },
+//   {
+//      id : 2,
+//      name : 'Some Name',
+//      parent : 1,
+//   },
+//   {
+//      id : 3,
+//      name : 'File 3',
+//      parent : 2,
+//   },
+//   {
+//      id : 4,
+//      name : 'File 4',
+//      parent : null,
+//   }
+// ]));
+
+// function deleteBlankItems(items) {
+//   for (var i = 0; i < items.length; i++) {
+//     if (items[i].length == 0) {
+//       items.splice(i,1)
+//     }
+//   }
+// }
+
+// var names = ['Rachel', '', 'Meghana', '', '', 'Tim'];
+// console.log(deleteBlankItems(names));
+
+function buildWordTreeFromSentences(sentenceList) {
+  let root = {};
+  sentenceList.forEach(sentence => {
+    let base = root
+    sentence.split(' ').forEach(word => {
+      if (base[word] === undefined) {
+        base[word] = {}
+      }
+      base = base[word]
+    })
   })
-
-
-  for (const id in nodeMap) {
-    const node = nodeMap[id];
-    if (node.parent !== null) {
-      const parent = nodeMap[node.parent];
-      parent.child.push(node);
-      delete node.parent
-    }
-  }
-  console.log(nodeMap)
-
-  let result = Object.values(nodeMap).filter((node) => {
-    if (node.parent === null) {
-      delete node.parent;
-      return node
-    }
-  })
-
-  return result
+  return root
 }
 
-
-console.log(build_file([
-  {
-     id : 1,
-     name : 'Parent',
-     parent : null
-  },
-  {
-     id : 2,
-     name : 'Some Name',
-     parent : 1,
-  },
-  {
-     id : 3,
-     name : 'File 3',
-     parent : 2,
-  },
-  {
-     id : 4,
-     name : 'File 4',
-     parent : null,
-  }
-]));
+let tree = buildWordTreeFromSentences(['Hello world', 'Hello there'])
+console.log(tree)
