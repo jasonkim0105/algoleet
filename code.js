@@ -143,28 +143,33 @@
 // let tree = buildWordTreeFromSentences(['Hello world', 'Hello there'])
 // console.log(tree)
 
-const promises = [3, 2, 1].map(d => {
-  new Promise(resolve => {
-    setTimeout(() => {
-      resolve(d)
-    }, d * 1000)
-  })
-})
+// const promises = [3, 2, 1].map(d => {
+//   new Promise(resolve => {
+//     setTimeout(() => {
+//       resolve(d)
+//     }, d * 1000)
+//   })
+// })
 
-Promise.race(promises).then((val) => {
-  console.log(val)
-})
+// Promise.race(promises).then((val) => {
+//   console.log(val)
+// })
 
-function hasPosNeg(array) {
-  let hasPost = false;
-  let hasNeg = false;
+// function hasPosNeg(array) {
+//   let hasPost = false;
+//   let hasNeg = false;
 
-  array.forEach(num => {
-    hasPost = num > 0;
-    hasNeg = num < 0
-  })
+//   array.forEach(num => {
+//     hasPost = num > 0;
+//     hasNeg = num < 0
+//   })
 
-  return [hasPost, hasNeg]
-}
+//   return [hasPost, hasNeg]
+// }
 
-console.log(hasPosNeg([-1, 0, 1]))
+// console.log(hasPosNeg([-1, 0, 1]))
+
+const f = n => n <= 1 ? 1 : n * f(n - 1);
+
+let g = f(4)
+console.log(g)
