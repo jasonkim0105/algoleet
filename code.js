@@ -126,19 +126,31 @@
 // var names = ['Rachel', '', 'Meghana', '', '', 'Tim'];
 // console.log(deleteBlankItems(names));
 
-function buildWordTreeFromSentences(sentenceList) {
-  let root = {};
-  sentenceList.forEach(sentence => {
-    let base = root
-    sentence.split(' ').forEach(word => {
-      if (base[word] === undefined) {
-        base[word] = {}
-      }
-      base = base[word]
-    })
-  })
-  return root
-}
+// function buildWordTreeFromSentences(sentenceList) {
+//   let root = {};
+//   sentenceList.forEach(sentence => {
+//     let base = root
+//     sentence.split(' ').forEach(word => {
+//       if (base[word] === undefined) {
+//         base[word] = {}
+//       }
+//       base = base[word]
+//     })
+//   })
+//   return root
+// }
 
-let tree = buildWordTreeFromSentences(['Hello world', 'Hello there'])
-console.log(tree)
+// let tree = buildWordTreeFromSentences(['Hello world', 'Hello there'])
+// console.log(tree)
+
+const promises = [3, 2, 1].map(d => {
+  new Promise(resolve => {
+    setTimeout(() => {
+      resolve(d)
+    }, d * 1000)
+  })
+})
+
+Promise.race(promises).then((val) => {
+  console.log(val)
+})
