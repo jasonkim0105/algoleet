@@ -154,3 +154,17 @@ const promises = [3, 2, 1].map(d => {
 Promise.race(promises).then((val) => {
   console.log(val)
 })
+
+function hasPosNeg(array) {
+  let hasPost = false;
+  let hasNeg = false;
+
+  array.forEach(num => {
+    hasPost = num > 0;
+    hasNeg = num < 0
+  })
+
+  return [hasPost, hasNeg]
+}
+
+console.log(hasPosNeg([-1, 0, 1]))
