@@ -169,7 +169,38 @@
 
 // console.log(hasPosNeg([-1, 0, 1]))
 
-const f = n => n <= 1 ? 1 : n * f(n - 1);
+// const f = n => n <= 1 ? 1 : n * f(n - 1);
 
-let g = f(4)
-console.log(g)
+// let g = f(4)
+// console.log(g)
+
+// function func(a,b) {
+//   a += 1;
+//   b.push(1)
+// }
+
+// const a = 0;
+// const b = [];
+// func(a,b)
+// console.log(a,b)
+
+function randInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function sample(items, n) {
+  result = [];
+
+  items.forEach((item, i) => {
+    if (i < n) {
+      result.push(item)
+    } else {
+      let j = randInt(0, i)
+      if (j < n) {
+        result[i] = item
+      }
+    }
+  })
+
+  return result
+}
